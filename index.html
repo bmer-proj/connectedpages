@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How to Use Connected Pages</title>
+  <link href="style.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+  
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#3367D6">
+
+  
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      padding: 2rem;
+      line-height: 1.6;
+      background-color: #f9f9ff;
+      color: #333;
+    }
+    h1 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      margin-top: 2rem;
+      color: var(--primary-color);
+    }
+    .instruction-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    a.back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      text-decoration: none;
+      color: var(--primary-color);
+    }
+  </style>
+  <link rel="icon" type="image/x-icon" href="cplogo.svg">
+</head>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js").then(function(reg) {
+      console.log("Service Worker registered ✔️", reg);
+    }).catch(function(err) {
+      console.error("Service Worker registration failed ❌", err);
+    });
+  }
+</script>
+
+<body>
+  <div class="instruction-container">
+    <h1>Welcome to <br> Connected Pages<img src="cplogo.svg" class="logo-image"></h1>
+    <p>This app is designed to help care partners connect with loved ones through shared memories, conversation prompts, and meaningful activities.</p>
+
+    <h2>Step 1: Add a Connection Card</h2>
+    <p>Click the <strong>“+ Add New Connection Card”</strong> button to start creating a profile for someone you'd like to connect with.</p>
+
+    <h2>Step 2: Add an Image & Description</h2>
+    <p>Upload a photo and write a short description (e.g., “Tomatoes and lettuce from our family garden”, or "Trip to Seoul") to help inspire conversation ideas.</p>
+
+    <h2>Step 3: Get Ideas</h2>
+    <p>Tap <strong>“Get ideas to connect”</strong> to receive AI-generated conversation prompts and activity ideas based on your description.</p>
+
+    <h2>Step 4: Try the Ideas</h2>
+    <p>Tap on any topic to view suggestions for conversations and activities to do with your loved one. You can modify the description for new ideas.</p>
+
+    <h2>Step 5: Take Notes</h2>
+    <p>Use the 📝 Notes section to jot down reflections, things that worked, or moments you want to remember.</p><br>
+
+    <a href="app.html" onclick="localStorage.setItem('hasVisitedConnectedPages', 'true'); localStorage.setItem('startFresh', 'true');" class="start-btn">Start Using Connected Pages ></a>
+
+
+  </div>
+</body>
+</html>
